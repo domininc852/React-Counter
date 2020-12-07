@@ -7,18 +7,22 @@ export default class Counter extends Component {
     }
     onIncrease = () => {
         const index = this.props.index;
-        this.setState((prevState) => ({
-            number: prevState.number + 1
-        }));
-        this.props.numberCallBack(index, this.state.number + 1);
+        const currentNumber = this.state.number;
+        this.setState({ number: currentNumber + 1 });
+        this.props.numberCallBack(index, currentNumber + 1);
     }
     onDecrease = () => {
         const index = this.props.index;
-        this.setState((prevState) => ({
-            number: prevState.number - 1
-        }));
-        this.props.numberCallBack(index, this.state.number - 1);
+        const currentNumber = this.state.number;
+        this.setState({ number: currentNumber - 1 });
+        this.props.numberCallBack(index, currentNumber - 1);
 
+    }
+    changeNumber(operation){
+        const index = this.props.index;
+        const currentNumber = this.state.number;
+        this.setState({ number: operation(currentNumber,1) });
+        this.props.sendNumberCallBack(index, operation());
     }
     render() {
         return (
