@@ -12,7 +12,7 @@ class MultiCounter extends Component {
     getSize = (size) => {
         this.setState({ size: size })
         this.setState({ sum: 0 })
-        this.counterGroupReference.current.clearNumbers();
+        this.counterGroupReference.current.reInitializeNumbers(size);
     }
     getSum = (sum) => {
         this.setState({ sum: sum })

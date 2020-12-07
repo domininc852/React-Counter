@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Counter from './Counter'
 
 class CounterGroup extends Component {
-    
 
     constructor(props) {
         super(props);
@@ -30,9 +29,9 @@ class CounterGroup extends Component {
         this.props.sendSumCallBack(sum);
     }
 
-    clearNumbers() {
-        const emptyNumbers = this.state.numbers.map(number => 0);
-        this.setState({ numbers: emptyNumbers })
+    reInitializeNumbers(size) {
+        const numbers = this.initializeNumbers(size)
+        this.setState({ numbers: numbers })
 
     }
 
@@ -40,7 +39,7 @@ class CounterGroup extends Component {
         const size = this.props.size;
         const initArraySize = this.initArraySize(size);
         return (
-            initArraySize.map(value => <Counter key={value} index={value} numberCallBack={this.getNumber} />)
+            initArraySize.map(value => <Counter key={value} index={value} sendNumberCallBack={this.getNumber} />)
         )
     };
 }
