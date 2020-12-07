@@ -7,22 +7,21 @@ class MultiCounter extends Component {
     constructor(props) {
         super(props);
         this.state = { size: 0, sum: 0 };
-        this.counterGroupReference = React.createRef();
     }
     getSize = (size) => {
         this.setState({ size: size })
         this.setState({ sum: 0 })
-        this.counterGroupReference.current.reInitializeNumbers(size);
     }
     getSum = (sum) => {
         this.setState({ sum: sum })
     }
     render() {
+        const sum = this.state.sum;
         return (
             <section>
                 <CounterSizeGenerator sendSizeCallBack={this.getSize} />
-                <CounterGroupSum sum={this.state.sum} />
-                <CounterGroup ref={this.counterGroupReference} size={this.state.size} sendSumCallBack={this.getSum} />
+                <CounterGroupSum sum={sum} />
+                <CounterGroup size={this.state.size} sum={sum} sendSumCallBack={this.getSum} />
             </section>
 
         );
