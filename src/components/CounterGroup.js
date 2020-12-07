@@ -6,13 +6,12 @@ class CounterGroup extends Component {
     constructor(props) {
         super(props);
         const numbers = this.initializeNumbers(this.props.size);
-        this.state = { numbers: numbers }
+        this.state = { numbers: numbers };
     }
     initializeNumbers(size) {
         const numbers = new Array(size);
         for (var i = 0; i < size; i++) {
             numbers[i] = 0;
-            console.log(numbers[i]);
         }
         return numbers;
     }
