@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import Counter from './Counter'
+import { v4 as uuidv4 } from 'uuid'
+import CounterCotainer from '../containers/CounterContainer'
 
 class CounterGroup extends Component {
     initArraySize = (size) => {
         size = size.length > 0 ? parseInt(size) : 0;
-        return Array.from(Array(size).keys());
+        return Array.from(Array(Number(size)).keys());
     }
 
     getNumber = (number) => {
-        const sum = this.props.sum + number;
-        this.props.sendSumCallBack(sum);
+        this.props.sendNumberCallBack(number);
     }
 
     render() {
         const size = this.props.size;
         const initArraySize = this.initArraySize(size);
         return (
-            initArraySize.map(value => <Counter key={value} sendNumberCallBack={this.getNumber} />)
+            initArraySize.map(value => <CounterCotainer key={uuidv4()} />)
         )
-    };
+    }
 }
 
 export default CounterGroup;

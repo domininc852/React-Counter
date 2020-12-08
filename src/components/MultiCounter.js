@@ -12,8 +12,8 @@ class MultiCounter extends Component {
         this.setState({ size: size })
         this.setState({ sum: 0 })
     }
-    getSum = (sum) => {
-        this.setState({ sum: sum })
+    getSum = (number) => {
+        this.setState({ sum: this.state.sum + number })
     }
     render() {
         const sum = this.state.sum;
@@ -21,7 +21,7 @@ class MultiCounter extends Component {
             <section>
                 <CounterSizeGenerator sendSizeCallBack={this.getSize} />
                 <CounterGroupSum sum={sum} />
-                <CounterGroup size={this.state.size} sum={sum} sendSumCallBack={this.getSum} />
+                <CounterGroup key="1" size={this.state.size}  sendNumberCallBack={this.getSum} />
             </section>
 
         );
