@@ -5,7 +5,7 @@ import CounterCotainer from '../containers/CounterContainer'
 
 class CounterGroup extends Component {
     initArraySize = (size) => {
-        size = size.length > 0 ? parseInt(size) : 0;
+        size = size > 0 ? parseInt(size) : 0;
         return Array.from(Array(Number(size)).keys());
     }
 
@@ -14,7 +14,7 @@ class CounterGroup extends Component {
     }
 
     render() {
-        const size = this.props.size;
+        const size = this.props.counterSize;
         const initArraySize = this.initArraySize(size);
         return (
             initArraySize.map(value => <CounterCotainer key={uuidv4()} />)

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CounterGroup from './CounterGroup'
+import CounterGroupContainer from '../containers/CounterGroupContainer'
 import CounterGroupSumContainer from '../containers/CounterGroupSumContainer'
 import CounterSizeGeneratorContainer from '../containers/CounterSizeGeneratorContainer';
 
@@ -20,7 +20,7 @@ class MultiCounter extends Component {
             <section>
                 <CounterSizeGeneratorContainer />
                 <CounterGroupSumContainer />
-                <CounterGroup key="1" size={this.state.size} sendNumberCallBack={this.getSum} />
+                <CounterGroupContainer  />
             </section>
 
         );
