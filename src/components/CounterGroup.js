@@ -16,7 +16,7 @@ class CounterGroup extends Component {
         const size = this.props.size;
         const initArraySize = this.initArraySize(size);
         return (
-            initArraySize.map(value => <Counter key={value} index={value} sendNumberCallBack={this.getNumber} />)
+            initArraySize.map(value => <Counter key={value} sendNumberCallBack={this.getNumber} />)
         )
     };
 }
