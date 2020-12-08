@@ -6,6 +6,9 @@ const mapDispatchToProps = dispatch => ({
     update: (size) => { dispatch(updateCounterSize(size)) },
     reset: () => { dispatch(resetSum()) }
 });
+const mapStateToProps = state =>({
+    counterSize: state.size
+})
 const CounterSizeGeneratorContainer = connect(null, mapDispatchToProps)(CounterSizeGenerator);
 
 export default CounterSizeGeneratorContainer;
