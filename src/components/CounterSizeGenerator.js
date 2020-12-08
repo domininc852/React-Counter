@@ -9,6 +9,7 @@ class CounterSizeGenerator extends Component {
         const size = event.target.value < 0 ? 0 : event.target.value;
         this.setState({ size: size });
         this.props.update(size);
+        this.props.reset();
     }
     render() {
         return (
