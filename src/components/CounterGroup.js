@@ -8,7 +8,7 @@ class CounterGroup extends Component {
     }
 
     getNumber = (number) => {
-        const sum=this.props.sum+number;
+        const sum = this.props.sum + number;
         this.props.sendSumCallBack(sum);
     }
 

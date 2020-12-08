@@ -7,12 +7,12 @@ class CounterSizeGenerator extends Component {
     }
     onChange = (event) => {
         const size = event.target.value < 0 ? 0 : event.target.value;
-        this.setState({ size: size});
+        this.setState({ size: size });
         this.props.sendSizeCallBack(size);
     }
     render() {
         return (
-            <input type="number" min = "0" value={this.state.size} onChange={this.onChange} />
+            <input type="number" min="0" value={this.state.size} onChange={this.onChange} />
         );
     }
 }
